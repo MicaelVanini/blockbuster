@@ -30,7 +30,7 @@ public class User
 	
 	@Column(unique = true)
 	@NotNull @NotEmpty @NotBlank
-	private String username;
+	private String userName;
 	
 	@NotNull @NotEmpty @NotBlank
 	private String password;
@@ -41,7 +41,7 @@ public class User
 	@ManyToMany(cascade = { CascadeType.ALL })
     @JoinTable(
         name = "userMovie", 
-        joinColumns = { @JoinColumn(name = "id") }, 
+        joinColumns = { @JoinColumn(name = "id_user") }, 
         inverseJoinColumns = { @JoinColumn(name = "id_movie") }
         )
 	private List<Movie> movies;

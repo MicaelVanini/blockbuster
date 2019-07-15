@@ -6,7 +6,7 @@ import com.contrader.model.User;
 
 import java.util.List;
 
-public interface UserRepository extends CrudRepository<User, Integer> {
+public interface UserRepository extends CrudRepository<User, Long> {
 
 	/**
 	 * Metodo per leggere un utente dal db tramite username e password
