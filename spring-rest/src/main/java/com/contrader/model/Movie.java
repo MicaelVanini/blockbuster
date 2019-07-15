@@ -1,5 +1,6 @@
  package com.contrader.model;
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
@@ -22,7 +23,6 @@ public class Movie
 	
 	@OneToOne
 	@JoinColumn(name = "id_gender")
-	@NotNull @NotEmpty @NotBlank
 	private Gender gender;
 	
 	@NotNull @NotEmpty @NotBlank
@@ -32,5 +32,8 @@ public class Movie
 	
 	@NotNull @NotEmpty @NotBlank
 	private float price;
+	
+	@ManyToMany(mappedBy = "movies")
+	private List<User> user;
 
 }
