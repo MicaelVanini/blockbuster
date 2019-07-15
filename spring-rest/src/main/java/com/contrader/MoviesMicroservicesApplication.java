@@ -1,4 +1,4 @@
-package com.contrader.MoviesMicroservices;
+package com.contrader;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

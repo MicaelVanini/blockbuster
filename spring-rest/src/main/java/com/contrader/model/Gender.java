@@ -1,4 +1,4 @@
-package entities;
+package com.contrader.model;
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;

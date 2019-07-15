@@ -1,5 +1,6 @@
-package entities;
-import java.util.Date;
+package com.contrader.model;
+
+import java.util.List;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
@@ -12,25 +13,34 @@ import lombok.NoArgsConstructor;
 
 @Entity
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
-public class Movie
+@AllArgsConstructor
+public class User
 {
+	
+	public enum Usertype 
+	{
+		ADMIN,
+		USER
+	}
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	
-	@OneToOne
-	@JoinColumn(name = "id_gender")
+	@Column(unique = true)
 	@NotNull @NotEmpty @NotBlank
-	private Gender gender;
+	private String userName;
 	
 	@NotNull @NotEmpty @NotBlank
-	private String title;
+	private String password;
 	
-	private Date date;
+	@OneToMany
+	@JoinColumn(name = "id_movie")
+	@NotNull @NotEmpty @NotBlank
+	private List<Movie> film;
 	
 	@NotNull @NotEmpty @NotBlank
-	private float price;
+	private Usertype usertype;
 
 }

@@ -1,4 +1,6 @@
-package entities;
+ package com.contrader.model;
+import java.util.Date;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
@@ -10,34 +12,25 @@ import lombok.NoArgsConstructor;
 
 @Entity
 @Data
-@NoArgsConstructor
 @AllArgsConstructor
-public class User
+@NoArgsConstructor
+public class Movie
 {
-	
-	public enum Usertype 
-	{
-		ADMIN,
-		USER
-	}
-	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	
-	@Column(unique = true)
+	@OneToOne
+	@JoinColumn(name = "id_gender")
 	@NotNull @NotEmpty @NotBlank
-	private String username;
+	private Gender gender;
 	
 	@NotNull @NotEmpty @NotBlank
-	private String password;
+	private String title;
 	
-	@OneToMany
-	@JoinColumn(name = "id_movie")
-	@NotNull @NotEmpty @NotBlank
-	private Movie film;
+	private Date date;
 	
 	@NotNull @NotEmpty @NotBlank
-	private Usertype usertype;
+	private float price;
 
 }
